@@ -1,0 +1,62 @@
+
+#include <iostream>
+
+using namespace std;
+int Maxrowsum(int arr[][4],int i,int j){
+   
+         int maxi=-1;
+         int rowindex=-1;
+     for(int i=0;i<3;i++){
+          int sum=0;
+         for(int j=0;j<4;j++){
+             sum=sum+arr[i][j];
+         }
+         if(sum>maxi){
+             maxi=sum;
+             rowindex=i;
+         }
+      
+     }
+      cout<<" maximum row sum is :"<<maxi<<endl;    
+      return rowindex;
+}
+bool search(int arr[][4],int target,int i,int j){
+     for(int i=0;i<3;i++){
+         for(int j=0;j<4;j++){
+             if(arr[i][j]==target){
+                 return true;
+             }
+         }
+     }
+    return false;
+}
+
+
+int main() {
+    
+int arr[3][4];
+     
+     for(int i=0;i<3;i++){
+         for(int j=0;j<4;j++){
+             cin>>arr[i][j];
+         }
+     }
+     
+     
+     for(int i=0;i<3;i++){
+         for(int j=0;j<4;j++){
+             cout<<arr[i][j]<<" ";
+         }
+         cout<<endl;
+     }
+     
+     cout<<" Element present or not : "<<search(arr,8,3,4);
+     cout<<endl;
+     int ans=Maxrowsum(arr,3,4);
+     
+     cout<<" maximum row sum is at index :"<<ans<<endl;
+     
+     
+     
+    return 0;
+}
